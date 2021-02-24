@@ -29,10 +29,10 @@ findMin(3,1) // 1
 function findMin(...args){
     return Math.min(...args);
 }
-console.log(findMin(1, 3, 5, 7, 9));
-console.log(findMin(1,4,12,-3));
-console.log(findMin(1,-1));
-console.log(findMin(3,1));
+// console.log(findMin(1, 3, 5, 7, 9));
+// console.log(findMin(1,4,12,-3));
+// console.log(findMin(1,-1));
+// console.log(findMin(3,1));
 
 /*
 mergeObjects
@@ -45,4 +45,25 @@ mergeObjects({a:1, b:2}, {c:3, d:4}) // {a:1, b:2, c:3, d:4}
 function mergeObjects(obj1, obj2){
     return {...obj1, ...obj2};
 }
-console.log(mergeObjects({a:1, b:2}, {c:3, d:4}));
+// console.log(mergeObjects({a:1, b:2}, {c:3, d:4}));
+
+/*
+doubleAndReturnArgs
+Write a function called doubleAndReturnArgs which accepts an array and a variable number of arguments. The function 
+should return a new array with the original array values and all of additional arguments doubled.
+
+doubleAndReturnArgs([1,2,3],4,4) // [1,2,3,8,8]
+doubleAndReturnArgs([2],10,4) // [2, 20, 8]
+*/
+
+function doubleAndReturnArgs(arr, ...args){
+    let arr3 = [];
+    for(let i = 0; i<args.length; i++){
+        args[i] = args[i]*2;
+        arr3.push(args[i]);
+    }
+    return [...arr, ...arr3];
+
+}
+console.log(doubleAndReturnArgs([1,2,3],4,4));
+console.log(doubleAndReturnArgs([2],10,4));
