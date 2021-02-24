@@ -14,3 +14,22 @@ function filterOutOdds(...nums){
     return nums.filter(num => num%2 === 0)
 }
 //console.log(filterOutOdds(1, 2, 4, 5, 6,7, 9, 10));
+
+/*
+findMin
+Write a function called findMin that accepts a variable number of arguments and returns the smallest argument.
+
+Make sure to do this using the rest and spread operator.
+
+findMin(1,4,12,-3) // -3
+findMin(1,-1) // -1
+findMin(3,1) // 1
+*/
+
+function findMin(...args){
+    return Math.min(...args);
+}
+console.log(findMin(1, 3, 5, 7, 9));
+console.log(findMin(1,4,12,-3));
+console.log(findMin(1,-1));
+console.log(findMin(3,1));
