@@ -11,9 +11,9 @@ function filterOutOdds() {
 //ES2015 Function for the above function
 
 function filterOutOdds(...nums){
-    return nums.filter(num => num%2 === 0)
+    return nums.filter(num => num % 2 === 0)
 }
-//console.log(filterOutOdds(1, 2, 4, 5, 6,7, 9, 10));
+console.log(filterOutOdds(1, 2, 4, 5, 6,7, 9, 10));
 
 /*
 findMin
@@ -66,3 +66,110 @@ function doubleAndReturnArgs(arr, ...args){
 }
 console.log(doubleAndReturnArgs([1,2,3],4,4));
 console.log(doubleAndReturnArgs([2],10,4));
+
+
+/*
+Slice and Dice!
+For this section, write the following functions using rest, spread and refactor these functions to be arrow functions!
+Make sure that you are always returning a new array or object and not modifying the existing inputs.
+
+/** remove a random element in the items array
+and return a new array without that item. */
+
+function removeRandom(items) {
+    let counter = Math.floor(items.length*(Math.random()));
+    return [...items.slice(0, counter), ...items.slice(counter+1)];
+}
+console.log(removeRandom([1, 2, 3, 4]));
+
+//Now this in an arrow function is as follows:
+const removeRandomArrow = (items) => {
+    let counter = Math.floor(items.length*(Math.random()));
+    return [...items.slice(0, counter), ...items.slice(counter+1)];
+}
+console.log(removeRandomArrow([1, 2]));
+
+/** Return a new array with every item in array1 and array2. */
+
+function extend(array1, array2) {
+    return [...array1, ...array2];
+}
+console.log(extend([1,2], [3, 4]));
+
+// Now, this in an arrow function is as follows:
+const extendArrow = (array1, array2) =>{
+    return [...array1, ...array2];
+}
+console.log(extendArrow([1,2], [3]));
+
+/** Return a new object with all the keys and values
+from obj and a new key/value pair */
+
+function addKeyVal(obj, key, val) {
+    obj[key] = val;
+    return {...obj};
+}
+let obj7 = {name: "Nabin", school: "Springboard"};
+console.log(addKeyVal({...obj7, job: "Software Engineerinng std"}));
+
+//Now this in arrow function
+
+const addKeyValArrow = (obj, key, val) => {
+    obj[key] = val;
+    return {...obj};
+}
+let obj6 = {name: "Nabin", school: "Springboard"};
+console.log(addKeyValArrow({...obj6, job: "Software Engineerinng std"}));
+
+
+/** Return a new object with a key removed. */
+
+function removeKey(obj, key) {
+    //copy the original object into a new one and use it to remove a key 
+    let obj2 = {...obj};
+    delete obj2[key];
+    //console.log({...obj2});
+    return obj2;
+}
+// Now this in arrow function
+const removeKeyArrow = (obj, key) => {
+    let obj2 = {...obj};
+    delete obj2[key];
+    return obj2;
+}
+
+/** Combine two objects and return a new object. */
+
+function combine(obj1, obj2) {
+    return {...obj1, ...obj2};
+}
+let obj1 = {name: "Nabin"};
+let obj2 = {school: "Springboard"};
+console.log(combine({...obj1, ...obj2}));
+
+// Now combine function as an arrow function
+const combineArrow = (obj1, obj2) => {
+    return {...obj1, ...obj2};
+}
+let obj3 = {name: "Nabin"};
+let obj4 = {school: "Springboard"};
+console.log(combine({...obj3, ...obj4}));
+
+
+/** Return a new object with a modified key and value. */
+
+function update(obj, key, val) {
+     // let's add the key val pair to obj as a form of modification
+     // make a copy of object so that it does not alter the original object
+     let obj1 = {...obj}
+    obj1[key] = val;
+    return obj1;
+}
+// As an arrow function
+const updateArrow = (obj, key, val) => {
+    let obj2 = {...obj};
+    obj2[key] = val;
+    return obj2;
+}
+
+
